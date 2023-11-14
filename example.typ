@@ -82,7 +82,7 @@
 
 #lorem(30)
 
-= Eduction
+= Education
 
 #entries(
 	(
