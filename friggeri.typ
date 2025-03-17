@@ -52,8 +52,8 @@
 
 	set heading(numbering: "1.")
 
-	show heading.where(level:1): it => locate(loc => {
-		let index = counter(heading).at(loc).first()
+	show heading.where(level:1): it => {
+		let index = counter(heading).get().first()
 		let color = headercolors.at(index - 1, default:gray)
 		let start = repr(it.body).slice(1, 4)
 		let end = repr(it.body).slice(4, -1)
@@ -62,7 +62,7 @@
 			#(text(fill:color)[#start]+text(fill:gray)[#end])
 			#v(3mm)
 		]
-	})
+	}
 
 	// Document header
 
