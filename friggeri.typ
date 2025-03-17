@@ -89,7 +89,6 @@
 
 	let aside(content) = box(
 		inset: (right: 1cm),
-		outset: (top: 1cm, left: 1cm),
 		width: 4cm,
 		height: 23cm,
 		align(right)[
