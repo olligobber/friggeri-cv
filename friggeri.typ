@@ -1,3 +1,5 @@
+#import "@preview/wrap-it:0.1.1": wrap-content
+
 #let cv(
 	title,
 	subtitle: [],
@@ -7,7 +9,7 @@
 
 	set page(
 		paper: "a4",
-		margin: 0pt,
+		margin: 1.5cm,
 	)
 
 	// Define some preset colours to use
@@ -66,11 +68,12 @@
 
 	// Document header
 
-	let dochead(title, subtitle) = block(
+	let dochead(title, subtitle) = move(dx: -1.5cm, dy: -1.5cm, block(
 		fill: gray,
-		width: 100%,
+		width: 100% + 3cm,
 		height: auto,
-		inset: (top:1.5cm, bottom:0.8cm),
+		inset: (top:1.5cm, bottom:-0.2cm),
+		outset: (bottom: 1cm),
 		[
 			#set par(leading:8pt)
 			#set text(fill:white)
@@ -80,31 +83,35 @@
 				alttext(14pt)[ #subtitle ]
 			)
 		]
-	)
+	))
 
 	// Document content
 
-	let aside(content) = align(right)[
-		#show heading.where(level:1): it => [
-			#set text(size: 14pt)
-			#it.body
-			#v(1mm)
-			#counter(heading).update(n => n - 1)
+	let aside(content) = move(dx: -0.5cm, dy:0cm, box(
+		inset: (right: 1cm, bottom: 1cm),
+		outset: (top: 1cm, left: 1cm),
+		stroke: (right: gray, bottom: gray),
+		radius: (bottom-right: 1cm),
+		width: 4cm,
+		height: auto,
+		align(right)[
+			#show heading.where(level:1): it => [
+				#set text(size: 14pt)
+				#it.body
+				#v(1mm)
+				#counter(heading).update(n => n - 1)
+			]
+			#content
 		]
-		#content
-	]
+	))
 
 	let makeContentWithAside(asideContent, content) = block(
-		inset: (top: 0.5cm, left: 1cm, right: 1.5cm),
 		width: 100%,
 		height: auto,
-		grid(
-			columns: (4cm, auto),
-			rows: (auto),
-			gutter: 1cm,
+		wrap-content(
 			aside(asideContent),
 			[
-				#set par(justify:true)
+				#set par(justify: true)
 				#content
 			]
 		)

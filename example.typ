@@ -76,11 +76,7 @@
 	)
 )
 
-= History
-
-#lorem(50)
-
-#lorem(30)
+\
 
 = Education
 
@@ -110,3 +106,21 @@
 		lorem(19),
 	)
 )
+
+= History
+
+#lorem(50)
+
+= Projects
+
+#lorem(100)
+
+#lorem(200)
+
+= Interests
+
+#lorem(50)
+
+#lorem(60)
+
+#lorem(40)
