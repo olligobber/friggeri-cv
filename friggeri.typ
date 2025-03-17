@@ -87,13 +87,11 @@
 
 	// Document content
 
-	let aside(content) = move(dx: -0.5cm, dy:0cm, box(
-		inset: (right: 1cm, bottom: 1cm),
+	let aside(content) = move(dx: -0.5cm, box(
+		inset: (right: 1cm),
 		outset: (top: 1cm, left: 1cm),
-		stroke: (right: gray, bottom: gray),
-		radius: (bottom-right: 1cm),
 		width: 4cm,
-		height: auto,
+		height: 23cm,
 		align(right)[
 			#show heading.where(level:1): it => [
 				#set text(size: 14pt)
@@ -142,7 +140,7 @@
 	).flatten()
 
 	grid(
-		columns: (15mm, 100% - 20mm),
+		columns: (10%, 90% - 5mm),
 		rows: (auto),
 		column-gutter: 5mm,
 		row-gutter: 3mm,
