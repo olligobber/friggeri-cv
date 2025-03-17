@@ -87,7 +87,7 @@
 
 	// Document content
 
-	let aside(content) = move(dx: -0.5cm, box(
+	let aside(content) = box(
 		inset: (right: 1cm),
 		outset: (top: 1cm, left: 1cm),
 		width: 4cm,
@@ -101,7 +101,7 @@
 			]
 			#content
 		]
-	))
+	)
 
 	let makeContentWithAside(asideContent, content) = block(
 		width: 100%,
